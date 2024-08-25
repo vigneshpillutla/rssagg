@@ -23,6 +23,7 @@ func InitRoutes() *chi.Mux {
 
 	router.Get("/healthz", readinessHandler)
 	router.Get("/error", errorRoute)
+	router.Post("/users", createUserHandler)
 
 	return router;
 }
@@ -34,5 +35,5 @@ func readinessHandler(w http.ResponseWriter, r *http.Request) {
 
 func errorRoute(w http.ResponseWriter, r *http.Request) {
 	log.Printf("%v errorRoute",r.URL)
-	responseWithError(w, http.StatusBadRequest, "Something went wrong");
+	respondWithError(w, http.StatusBadRequest, "Something went wrong");
 }

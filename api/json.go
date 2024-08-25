@@ -6,7 +6,7 @@ import (
 	"net/http"
 )
 
-func responseWithError(w http.ResponseWriter, code int, message string) {
+func respondWithError(w http.ResponseWriter, code int, message string) {
 	if code >= 500 {
 		log.Println(message);
 	}
